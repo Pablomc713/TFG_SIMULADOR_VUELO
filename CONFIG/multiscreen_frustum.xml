@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+
+  <!-- ========================================================= -->
+  <!--                 CONFIGURACIÓN DE RENDER                  -->
+  <!-- ========================================================= -->
+
+  <sim>
+    <rendering>
+      <camera-group>
+
+        <!-- Ventana única = Surround (5760x1080) -->
+        <window>
+          <name type="string">main</name>
+          <width>5760</width>
+          <height>1080</height>
+          <fullscreen type="bool">false</fullscreen>
+          <decoration type="bool">false</decoration>
+        </window>
+
+        <!-- ===============================
+             PARÁMETROS GEOMÉTRICOS (a medir)
+             ===============================
+             D  = distancia ojo->pantalla (m)
+             W  = ancho visible de cada monitor (m)
+             H  = alto visible de cada monitor (m)
+             θ  = ángulo físico lateral (deg) (solo para heading)
+             
+             Para cada monitor, el frustum se define en el plano z=D:
+               left   = -W/2
+               right  = +W/2
+               bottom = -H/2
+               top    = +H/2
+             
+             NOTA: Si tu ojo está centrado en el monitor, es simétrico.
+                   Si no, se hace asimétrico con offsets (más adelante).
+        -->
+
+        <!-- CENTER -->
+        <camera>
+          <name type="string">cam_center</name>
+          <window><name>main</name></window>
+          <viewport>
+            <x>1920</x><y>0</y>
+            <width>1920</width><height>1080</height>
+          </viewport>
+
+          <view>
+            <heading-deg type="double">0</heading-deg>
+
+            <!-- FRUSTUM: sustituye los placeholders -->    
+                <!-- Medidas provisionales -->
+                <!-- W=0.531m, H=0.299m, D=0.90m, THETA=33deg -->
+                
+            <frustum>
+              <!-- <left  type="double">-W/2</left> -->  <left  type="double">-0.2655</left>
+              <!-- <right type="double"> W/2</right> -->  <right type="double"> 0.2655</right>
+              <!-- <bottom type="double">-H/2</bottom> -->  <bottom type="double">-0.1495</bottom>
+              <!-- <top   type="double"> H/2</top> -->   <top    type="double"> 0.1495</top>
+              <!-- <near type="double">D</near> -->   <near type="double">0.90</near>
+              <far    type="double">60000</far>
+            </frustum>
+
+          </view>
+        </camera>
+
+        <!-- LEFT -->
+        <camera>
+          <name type="string">cam_left</name>
+          <window><name>main</name></window>
+          <viewport>
+            <x>0</x><y>0</y>
+            <width>1920</width><height>1080</height>
+          </viewport>
+
+          <view>
+            <!-- <heading-deg type="double">+THETA</heading-deg> -->  <heading-deg type="double">100</heading-deg>
+            <frustum>
+              <!-- <left  type="double">-W/2</left> -->  <left  type="double">-0.2655</left>
+              <!-- <right type="double"> W/2</right> -->  <right type="double"> 0.2655</right>
+              <!-- <bottom type="double">-H/2</bottom> -->  <bottom type="double">-0.1495</bottom>
+              <!-- <top   type="double"> H/2</top> -->   <top    type="double"> 0.1495</top>
+              <!-- <near type="double">D</near> -->   <near type="double">0.90</near>
+              <far    type="double">60000</far>
+            </frustum>
+          </view>
+        </camera>
+
+        <!-- RIGHT -->
+        <camera>
+          <name type="string">cam_right</name>
+          <window><name>main</name></window>
+          <viewport>
+            <x>3840</x><y>0</y>
+            <width>1920</width><height>1080</height>
+          </viewport>
+
+          <view>
+            <!-- <heading-deg type="double">-THETA</heading-deg> -->  <heading-deg type="double">-100</heading-deg>
+            <frustum>
+              <!-- <left  type="double">-W/2</left> -->  <left  type="double">-0.2655</left>
+              <!-- <right type="double"> W/2</right> -->  <right type="double"> 0.2655</right>
+              <!-- <bottom type="double">-H/2</bottom> -->  <bottom type="double">-0.1495</bottom>
+              <!-- <top   type="double"> H/2</top> -->   <top    type="double"> 0.1495</top>
+              <!-- <near type="double">D</near> -->   <near type="double">0.90</near>
+              <far    type="double">60000</far>
+            </frustum>
+          </view>
+        </camera>
+
+        <gui>
+          <window><name>main</name></window>
+        </gui>
+
+      </camera-group>
+    </rendering>
+  </sim>
+</PropertyList>
