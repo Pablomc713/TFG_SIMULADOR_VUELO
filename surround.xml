@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+  <sim>
+    <rendering>
+      <camera-group>
+
+        <!-- ============================================= -->
+        <!-- WINDOW ÚNICA — cubre todo el canvas Surround  -->
+        <!-- NVIDIA Surround = 5760x1080 como pantalla     -->
+        <!-- única desde el punto de vista del SO          -->
+        <!-- ============================================= -->
+
+        <window>
+          <name>SURROUND</name>
+          <x>0</x>
+          <y>0</y>
+          <width>5760</width>
+          <height>1080</height>
+          <fullscreen>false</fullscreen>
+          <decoration>false</decoration>
+        </window>
+
+        <!-- ============================================= -->
+        <!-- CÁMARA ÚNICA — gran angular                   -->
+        <!-- FOV calculado para 3x monitores a 0.70m       -->
+        <!-- ============================================= -->
+
+        <camera>
+          <name>cam_surround</name>
+          <window>
+            <name>SURROUND</name>
+          </window>
+
+          <view>
+            <heading-deg>0</heading-deg>
+            <pitch-deg>0</pitch-deg>
+            <roll-deg>0</roll-deg>
+          </view>
+
+          <master-perspective>
+            <!-- Distancia ojo → monitor central (m)       -->
+            <eye-distance>0.70</eye-distance>
+          </master-perspective>
+
+          <physical-dimensions>
+            <!-- Ancho total: 3 monitores × 0.531 m        -->
+            <!-- Más los bezels: + 4 × 0.012 m ≈ 0.048 m  -->
+            <!-- Total ≈ 1.641 m                           -->
+            <!-- Ajusta según tus medidas reales           -->
+            <width>1.641</width>
+            <height>0.299</height>
+          </physical-dimensions>
+        </camera>
+
+        <!-- GUI en el canvas Surround -->
+        <gui>
+          <window>
+            <name>SURROUND</name>
+          </window>
+        </gui>
+
+      </camera-group>
+    </rendering>
+  </sim>
+</PropertyList>
