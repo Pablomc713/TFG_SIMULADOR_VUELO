@@ -54,6 +54,8 @@ Los archivos XML modificados, descritos en detalle en el anexo *Archivos Modific
 * [**jsb-aerodynamics-block1_TFG.xml**](CODIGOS_MODIFICADOS/jsb-aerodynamics-block1_TFG.xml) — aerodinámica del F-16 Block 10.
 * [**jsb-controls_TFG.xml**](CODIGOS_MODIFICADOS/jsb-controls_TFG.xml) — sistema de control *fly-by-wire* del F-16 Block 10.
 
+El sistema de visualización multimonitor finalmente empleado se configura mediante [**surround.xml**](CONFIG/surround.xml) (pantalla combinada NVIDIA Surround). La configuración experimental del sistema multicámara con frustum, documentada como línea de mejora futura, está en [**multiscreen_frustum.xml**](CONFIG/multiscreen_frustum.xml).
+
 ## 6. Estructura del repositorio
 
 ```text
@@ -80,10 +82,11 @@ Los archivos XML modificados, descritos en detalle en el anexo *Archivos Modific
 │   └── jsb-controls_TFG.xml
 │
 └── CONFIG/
+    ├── surround.xml
     └── multiscreen_frustum.xml
 ```
 
-`CODIGOS_MODIFICADOS/` contiene los archivos XML reales modificados durante el desarrollo de las prácticas, documentados en detalle en el anexo *Archivos Modificados de las Aeronaves*. `CONFIG/` recoge los archivos de configuración empleados en el equipo de laboratorio, como la definición geométrica del sistema de visualización multimonitor mediante frustum.
+`CODIGOS_MODIFICADOS/` contiene los archivos XML reales modificados durante el desarrollo de las prácticas, documentados en detalle en el anexo *Archivos Modificados de las Aeronaves*. `CONFIG/` recoge los archivos de configuración del sistema de visualización multimonitor: `surround.xml` es la configuración base finalmente empleada para el desarrollo y validación del proyecto (pantalla combinada mediante NVIDIA Surround, 5760×1080); `multiscreen_frustum.xml` corresponde a la configuración experimental del sistema multicámara con proyección geométrica por frustum, documentada en la memoria como línea de mejora futura.
 
 Para la estructura de carpetas recomendada **dentro de la instalación de FlightGear** en el equipo del laboratorio (no del repositorio), consultar la sección siguiente.
 
@@ -98,7 +101,7 @@ FlightGear\
 │   └── TecnamP92\
 │
 ├── Config\
-│   ├── multiscreen_frustum\
+│   ├── multiscreen\
 │   ├── launch\
 │   └── controls\
 │
@@ -140,7 +143,7 @@ fgfs --aircraft=<nombre_aeronave> --airport=<codigo_icao> --runway=<pista>
 Con archivo de configuración multimonitor:
 
 ```text
-fgfs --config="ruta\al\archivo_multiscreen_frustum.xml"
+fgfs --config="ruta\al\archivo_surround.xml"
 ```
 
 Las rutas y parámetros concretos deben adaptarse a la instalación de cada equipo. **El procedimiento detallado, paso a paso, con resolución de incidencias, está en la Guía de Usuario.**
