@@ -59,8 +59,9 @@ El sistema de visualización multimonitor finalmente empleado se configura media
 ## 6. Estructura del repositorio
 
 ```text
-.
+TFG_SIMULADOR_VUELO/
 ├── README.md
+├── LICENSE.md
 │
 ├── MEMORIA/
 │   └── UCLM_EIIA_TFG_2425_Pablo_Martín_Calzada_Mark_VII.pdf
